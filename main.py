@@ -32,16 +32,17 @@ bbdd = [
         Alumno('Pepe','Fernandez',17, 'Python'),
         Persona('Juan','Gomez',15)
 ]
-comprobacion = True
-try:
-    numero = int(input("Introduce el numero de alumnos que va a anadir: "))
-except Exception:
-    while comprobacion:
-        numero = int(input("Introduce el numero de alumnos que va a anadir: "))
-        if numero >=0:
-            comprobacion=False
-        comprobacion=True
+while True:
+    numero = input("Introduce el numero de alumnos que va a anadir: ")
+    try:
+        numero = int(numero)
+        if numero >= 0:
+            bbdd = agregar(numero,bbdd)
+            mostrar(bbdd)
+            sys.exit()
+    except Exception:
+        print("Cuidado! tiene que introducir un numero entero.")
+        
 
-bbdd = agregar(numero,bbdd)
-mostrar(bbdd)
+
 #mostrar_adultos(bbdd)
